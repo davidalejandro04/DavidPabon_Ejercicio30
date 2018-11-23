@@ -19,6 +19,9 @@ gcc omp_non_linear_advection.c -fopenmp -o nla
 ./nla 4.0
 ./nla 10.0
 
+gcc ompwalk.c -fopenmp -o ompwalk
+./ompwalk >> datosWalkomp.txt
+
 gcc walk.c -fopenmp -o walk
 ./walk >> datosWalk.txt
 
