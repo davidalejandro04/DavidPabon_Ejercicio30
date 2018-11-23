@@ -1,4 +1,4 @@
-
+rm *.png 
 module load anaconda/python3
 
 #cd $PBS_O_WORKDIR
