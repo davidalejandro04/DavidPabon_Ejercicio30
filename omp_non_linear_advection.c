@@ -98,7 +98,6 @@ double *Lax(double *uP, double t_max, double delta_t, double delta_x)
 	omp_set_dynamic(0);
 	omp_set_num_threads(4); 
 
-	#pragma omp parallel for 
 	for(i=0;i<N;i++)
 	{
 			u_final[i]=uP[i];
