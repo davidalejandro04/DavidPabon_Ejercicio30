@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "omp.h"
+
+
 
 int walk(double barrier, int seed);
 double *reserva(int n_points);
@@ -12,6 +15,7 @@ void main (){
   int n_walkers = 500000;
 
   A = reserva(n_walkers);   
+ #pragma omp parallel for 
   for (i=0; i<n_walkers; i++){
      A[i] = walk(10.0, i);
   }
