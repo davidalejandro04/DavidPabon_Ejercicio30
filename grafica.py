@@ -50,3 +50,9 @@ plt.hist(datosWalk)
 plt.title('Caminata histograma')
 plt.savefig('graficaWalk.png')
 
+datosWalkomp=np.genfromtxt('datosWalkomp.txt')
+plt.hist(datosWalkomp)
+plt.title('Caminata histograma Paralela')
+plt.savefig('graficaWalkomp.png')
+
+
