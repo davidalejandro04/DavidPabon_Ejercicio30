@@ -1,6 +1,14 @@
-gcc walk.c -fopenmp -o walk
-./walk >> datosWalk.txt
 
+module load anaconda/python3
+
+#cd $PBS_O_WORKDIR
+
+gcc non_linear_advection.c -lm -o nlaserial
+./nlaserial 0.5
+./nlaserial 1.0
+./nlaserial 2.0
+./nlaserial 4.0
+./nlaserial 10.0
 
 
 #Corre la version paralela
@@ -11,17 +19,11 @@ gcc omp_non_linear_advection.c -fopenmp -o nla
 ./nla 4.0
 ./nla 10.0
 
-#Corre la version serial
-gcc non_linear_advection.c -lm -o nla2
-./nla2 0.5
-./nla2 1.0
-./nla2 2.0
-./nla2 4.0
-./nla2 10.0
-
+gcc walk.c -fopenmp -o walk
+./walk >> datosWalk.txt
 
 python3 grafica.py
-rm *.txt nla nla2 walk
+rm *.txt nla nlaserial walk
 
 
 

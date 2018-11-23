@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("Agg")
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -44,6 +46,7 @@ plt.savefig('graficaSerial.png')
 plt.close()
 
 datosWalk=np.genfromtxt('datosWalk.txt')
-plt.hist(datosWalk,density=True)
+plt.hist(datosWalk)
+plt.title('Caminata histograma')
 plt.savefig('graficaWalk.png')
 
