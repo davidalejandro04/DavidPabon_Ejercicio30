@@ -10,7 +10,6 @@ gcc non_linear_advection.c -lm -o nlaserial
 ./nlaserial 4.0
 ./nlaserial 10.0
 
-
 #Corre la version paralela
 gcc omp_non_linear_advection.c -fopenmp -o nla
 ./nla 0.5
@@ -26,7 +25,7 @@ gcc walk.c -fopenmp -o walk
 ./walk >> datosWalk.txt
 
 python3 grafica.py
-rm *.txt nla nlaserial walk
+rm *.txt nla nlaserial ompwalk
 
 
 

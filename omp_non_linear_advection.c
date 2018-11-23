@@ -94,23 +94,17 @@ double *Lax(double *uP, double t_max, double delta_t, double delta_x)
 	N_t= t_max/delta_t;
 	double *u_final=malloc(sizeof(double)*N);
 	double *F;
-	
-	omp_set_dynamic(0);
-	omp_set_num_threads(4); 
-
+	#pragma omp parallel for 
 	for(i=0;i<N;i++)
 	{
 			u_final[i]=uP[i];
 
 	}
-	omp_set_dynamic(0);
-	omp_set_num_threads(4); 
-
-	#pragma omp parallel for 
 	for(i=0;i<N_t;i++)
 	{
 
 		F= flux(u_final);
+		#pragma omp parallel for 
 		for(j=1;j<N-1;j++)
 		{	
 			u_final[j]=0.5*(u_final[j+1] + u_final[j-1])-(0.5*delta_t/delta_x)*(F[j+1]-F[j-1]);
